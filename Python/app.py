@@ -24,7 +24,7 @@ text_chunks = text_splitter.split_documents(documents)
 
 #create embeddings
 embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2",
-                                   model_kwargs={'device':"cpu"})
+                                   model_kwargs={'device':"cuda"})
 
 #vectorstore
 vector_store = FAISS.from_documents(text_chunks,embeddings)
